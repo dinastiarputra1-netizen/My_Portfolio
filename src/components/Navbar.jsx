@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,14 +20,14 @@ function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
         
         {/* Logo Section */}
-        <div className="flex items-center gap-2 group cursor-pointer">
+        <Link to="/" className="flex items-center gap-2 group cursor-pointer">
           <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center font-black text-white text-xl">
             D
           </div>
           <span className="text-2xl font-black tracking-tighter text-white">
             DINASTIAR.
           </span>
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <ul className="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
@@ -36,20 +36,18 @@ function Navbar() {
               key={item}
               className="relative cursor-pointer transition-all hover:text-white"
             >
-              <a href={`#${item.toLowerCase()}`}>{item}</a>
+              <Link to={`/#${item.toLowerCase()}`}>{item}</Link>
             </li>
           ))}
         </ul>
 
         {/* Action Button */}
         <div className="flex items-center gap-4">
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block px-6 py-2.5 bg-white text-black text-[11px] font-black uppercase tracking-widest rounded-full transition-all"
+          <button
+            className="hidden md:block px-6 py-2.5 bg-white text-black text-[11px] font-black uppercase tracking-widest rounded-full transition-all hover:scale-[1.05] active:scale-[0.95]"
           >
             Hire Me
-          </motion.button>
+          </button>
           
           {/* Mobile Menu Icon */}
           <div className="md:hidden flex flex-col gap-1.5 cursor-pointer p-2">

@@ -41,6 +41,7 @@ function Hero() {
 
   return (
     <section 
+      id="home"
       ref={targetRef}
       className="relative min-h-screen flex items-center justify-center bg-[#050505] overflow-hidden pt-20"
     >
